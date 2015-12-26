@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>响应式Tabs jQueyr插件</title>
+<link rel="stylesheet" type="text/css" href="css/responsive.tabs.css" media="all" />
+<style type="text/css">
+*{ margin:0; padding:0; list-style:none; }
+body { font:14px/1.8 "Microsoft Yahei"; }
+.demo { width:1000px; margin:20px auto 50px; }
+.demo h1 { font-size:28px; font-weight:normal; margin-bottom:50px; }
+.tips { color:#999; font-size:12px; margin:50px 0 20px; }
+
+.tab-content { background-color:#f7f7f7; padding:10px; }
+.tab-content h4, .accordion-content h4 { margin-bottom:5px; }
+.tab-content p, .accordion-content p { margin-bottom:10px; }
+
+@media only screen and ( max-width:1000px ){
+	body { margin:0 20px;}
+	.demo { width:100%; }
+}
+</style>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/responsive.tabs.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$('.tabs').respTabs({
+		startIndex : 2
+	});
+	
+});
+</script>
+</head>
+
+<body>
+
+<div class="demo">
+	
+    <h1>支持响应式Tab — 默认显示第三个选项卡</h1>
+    
+    
+    <div class="tabs">
+    	<ul class="tabs-list">
+    		<li class="active"><a href="javascript:;">选项卡 1</a></li>
+    		<li><a href="javascript:;">选项卡 2</a></li>
+    		<li><a href="javascript:;">选项卡 3</a></li>
+    	</ul>
+        <div class="tabs-container">
+        	<div class="tab-content" style="display:block;">
+            	<h4>第一个 Tab 内容</h4>
+            	<p>响应式Web设计(Responsive Web design)的理念是：集中创建页面的图片排版大小，可以智能地根据用户行为以及使用的设备环境（系统平台、屏幕尺寸、屏幕定向等）进行相对应的布局。</p>
+                <p>如今客户不仅仅使用iPhone和笔记本，而且使用iMac的27英寸显示器，10英寸的Kindle和很多平板设备。这些设备可能会使用不同的浏览器，并且每种表格因素和浏览器的组合都可能导致不同的页面渲染。并且这些行为可能在每个版本上都不太一样。</p>
+            </div>
+            <div class="tab-content">
+            	<h4>第二个 Tab</h4>
+                <p>响应式Web设计(Responsive Web design)的理念是：页面的设计与开发应当根据用户行为以及设备环境(系统平台、屏幕尺寸、屏幕定向等)进行相应的响应和调整。具体的实践方式由多方面组成，包括弹性网格和布局、图片、CSS media query的使用等。</p>
+                <p>响应式网页设计就是一个网站能够兼容多个终端——而不是为每个终端做一个特定的版本。</p>
+            </div>
+            <div class="tab-content">
+            	<h4>第三个 Tab 内容</h4>
+            	<p>最近的项目用到TAB效果的地方较多，于是自己稍微封装了下，写成了jQuery插件，方便以后使用，顺便重温下jQuery插件的实现机制。在写插件之前对常见的TAB效果做了下总结，大体上也就那几种效果。插件力求简单易用，只要能实现常见的功能即可。</p>
+                <p>在写插件之前对常见的TAB效果做了下总结，大体上也就那几种效果。插件力求简单易用，只要能实现常见的功能即可。</p>
+            </div>
+        </div>
+    </div>
+    
+    <p class="tips">注：请缩小浏览器窗口大小查看效果（宽度小于768px）。</p>
+    
+    
+</div>
+
+</body>
+</html>

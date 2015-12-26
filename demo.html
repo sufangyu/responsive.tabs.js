@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ margin:0; padding:0; list-style:none; }
+body { font:14px/1.8 "Microsoft Yahei"; }
+.demo { width:1000px; margin:50px auto; }
+
+.resp-tabs-list { height:35px; margin-bottom:10px; }
+.resp-tabs-list li { float:left; margin-right:20px; }
+.resp-tabs-list li a { display:block; height:35px; line-height:35px; padding:0 20px; background-color:#f7f7f7; color:#333; text-decoration:none; }
+.resp-tabs-list li.active a { background-color:#f30; color:#fff; }
+.resp-accordion-handle { display:none; margin-bottom:10px; background-color:#f7f7f7; }
+.resp-accordion-handle h4 { font-size:16px; height:34px; line-height:35px; cursor:pointer; }
+.resp-accordion-handle.active { background-color:#f30; color:#fff; }
+
+
+.resp-tab-content { margin:15px 0; background-color:#ccc; display:none; }
+.resp-tab-content p { margin-bottom:15px; }
+
+
+@media only screen and ( max-width:1000px ){
+	.demo { width:100%; }
+}
+
+@media only screen and ( max-width:768px ){
+	.resp-tabs-list { display:none; }
+	.resp-accordion-handle { display:block; }
+}
+
+
+
+</style>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="js/responsiveTabs.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var tab = $('.resp-tabs');
+	var tabList = tab.find('.resp-tabs-list');
+	var tabListItem = tabList.find('li');	
+	var respTabContent = tab.find('.resp-tab-content');
+	var toggle = false;
+	
+	tabListItem.each(function(){
+		var currentIndex = tabListItem.index($(this));
+		var accordionActiveCLass = '';
+		if($(this).hasClass('active')){
+			accordionActiveCLass = 'active';
+		}	
+		respTabContent.eq(currentIndex).before('<div class="resp-accordion-handle '+ accordionActiveCLass +'"><h4>'+ $(this).text() +'</h4><i></i></div>');		
+	});
+	
+	
+	tabListItem.click(function(){		
+		var currentIndex = tabListItem.index($(this));
+		$(this).addClass('active').siblings().removeClass('active');
+		respTabContent.eq(currentIndex).show().siblings('.resp-tab-content').hide();
+		return false;		
+	});
+		
+	
+	var accordionHandle = tab.find('.resp-accordion-handle');
+	
+	if( !toggle ){
+		accordionHandle.click(function(){
+			$(this).addClass('active').siblings('.resp-accordion-handle').removeClass('active');
+			$(this).next().slideDown().siblings('.resp-tab-content').slideUp();
+		});
+	}else{
+		respTabContent.hide();
+		accordionHandle.removeClass('active');
+		
+		accordionHandle.click(function(){			
+			if( $(this).next().is(':visible') ){
+				$(this).removeClass('active');
+				$(this).next().slideUp();
+			}else{
+				$(this).addClass('active').siblings('.resp-accordion-handle').removeClass('active');
+				$(this).next().slideDown().siblings('.resp-tab-content').slideUp();
+			}
+		});
+	}
+	
+	
+	
+});
+</script>
+</head>
+
+<body>
+
+<div class="demo">
+	
+    <div class="resp-tabs">
+    	<ul class="resp-tabs-list">
+    		<li class="active"><a href="javascript:;">选项卡 1</a></li>
+    		<li><a href="javascript:;">选项卡 2</a></li>
+    		<li><a href="javascript:;">选项卡 3</a></li>
+    	</ul>
+        <div class="resp-tabs-container">
+        	<div class="resp-tab-content" style="display:block;">
+            	<h4>第一个</h4>
+            	<p>最近的项目用到TAB效果的地方较多，于是自己稍微封装了下，写成了jQuery插件，方便以后使用，顺便重温下jQuery插件的实现机制。在写插件之前对常见的TAB效果做了下总结，大体上也就那几种效果。插件力求简单易用，只要能实现常见的功能即可。</p>
+                <p>在写插件之前对常见的TAB效果做了下总结，大体上也就那几种效果。插件力求简单易用，只要能实现常见的功能即可。</p>
+            </div>
+            <div class="resp-tab-content">
+            	<h4>第二个</h4>
+                <p>最近的项目用到TAB效果的地方较多，于是自己稍微封装了下，写成了jQuery插件，方便以后使用，顺便重温下jQuery插件的实现机制。在写插件之前对常见的TAB效果做了下总结，大体上也就那几种效果。插件力求简单易用，只要能实现常见的功能即可。</p>
+                <p>在写插件之前对常见的TAB效果做了下总结，大体上也就那几种效果。插件力求简单易用，只要能实现常见的功能即可。</p>
+            </div>
+            <div class="resp-tab-content">
+            	<h4>第三个</h4>
+            	<p>最近的项目用到TAB效果的地方较多，于是自己稍微封装了下，写成了jQuery插件，方便以后使用，顺便重温下jQuery插件的实现机制。在写插件之前对常见的TAB效果做了下总结，大体上也就那几种效果。插件力求简单易用，只要能实现常见的功能即可。</p>
+                <p>在写插件之前对常见的TAB效果做了下总结，大体上也就那几种效果。插件力求简单易用，只要能实现常见的功能即可。</p>
+            </div>
+        </div>
+    </div>
+    <br /><br /><br /><br />
+    
+    <div class="resp-tabs">
+    	<ul class="resp-tabs-list">
+    		<li class="active"><a href="javascript:;">选项卡 1</a></li>
+    		<li><a href="javascript:;">选项卡 2</a></li>
+    		<li><a href="javascript:;">选项卡 3</a></li>
+    	</ul>
+        <div class="resp-tabs-container">
+        	<div class="resp-tab-content" style="display:block;">
+            	<h4>第一个</h4>
+            	<p>最近的项目用到TAB效果的地方较多，于是自己稍微封装了下，写成了jQuery插件，方便以后使用，顺便重温下jQuery插件的实现机制。在写插件之前对常见的TAB效果做了下总结，大体上也就那几种效果。插件力求简单易用，只要能实现常见的功能即可。</p>
+                <p>在写插件之前对常见的TAB效果做了下总结，大体上也就那几种效果。插件力求简单易用，只要能实现常见的功能即可。</p>
+            </div>
+            <div class="resp-tab-content">
+            	<h4>第二个</h4>
+                <p>最近的项目用到TAB效果的地方较多，于是自己稍微封装了下，写成了jQuery插件，方便以后使用，顺便重温下jQuery插件的实现机制。在写插件之前对常见的TAB效果做了下总结，大体上也就那几种效果。插件力求简单易用，只要能实现常见的功能即可。</p>
+                <p>在写插件之前对常见的TAB效果做了下总结，大体上也就那几种效果。插件力求简单易用，只要能实现常见的功能即可。</p>
+            </div>
+            <div class="resp-tab-content">
+            	<h4>第三个</h4>
+            	<p>最近的项目用到TAB效果的地方较多，于是自己稍微封装了下，写成了jQuery插件，方便以后使用，顺便重温下jQuery插件的实现机制。在写插件之前对常见的TAB效果做了下总结，大体上也就那几种效果。插件力求简单易用，只要能实现常见的功能即可。</p>
+                <p>在写插件之前对常见的TAB效果做了下总结，大体上也就那几种效果。插件力求简单易用，只要能实现常见的功能即可。</p>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+</body>
+</html>
