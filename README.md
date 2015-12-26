@@ -13,6 +13,7 @@
 <script type="text/javascript" src="js/responsive.tabs.js"></script>
 ```
 
+
 ## HTML结构
 ``` html
 <div class="tabs">
@@ -31,10 +32,12 @@
 </div>
 ```
 
-**插件调用**
+
+## 插件调用
 ``` js
 $('.tabs').respTabs();
 ```
+
 
 ## 参数
 | 选项            | 类型    |  默认值  |  说明  |
@@ -48,8 +51,10 @@ $('.tabs').respTabs();
 | toggles         | bool    | false             |  隐藏自身的切换，只在accordions模式有效         |
 | hidenContent    | bool    | false             |  默认隐藏Accordions内容，只在accordions模式有效 |
 
+
 ## 兼容性
 Chrome、Firefox、IE6+。（如果使用响应式，需支持CSS3 @media的浏览器）
+
 
 ## 协议
 MIT
