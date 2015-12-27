@@ -1,6 +1,6 @@
 /*
- * responsive.tabs v1.0.0
- * Yu, 2015-12-26
+ * responsive.tabs v1.0.1
+ * Yu, 2015-12-27
  * More info : https://github.com/sufangyu/responsive.tabs.js
 */
 ;(function($){
@@ -46,7 +46,7 @@
 				});				
 				//accordionHandle = self.find('.accordion-handle');
 			},			
-			showTabs = function(index){
+			showTabs = function(index){				
 				tabListItem.eq(index).addClass(options.activeClass).siblings('li').removeClass('active '+options.activeClass);
 				tabContent.eq(index).show().siblings('.tab-content').hide();
 				
@@ -56,10 +56,15 @@
 					accordionHandle.eq(index).addClass(options.activeClass).siblings('.accordion-handle').removeClass('active '+options.activeClass);
 				}
 			},			
-			showAccording = function(index){				
+			showAccording = function(index){
 				accordionHandle = options.model == 'accordions' ? self.children('.accordion-handle') : self.children().children('.accordion-handle');
 				accordionHandle.eq(index).addClass(options.activeClass).siblings('.accordion-handle').removeClass('active '+options.activeClass);
 				tabContent.eq(index).slideDown().siblings('.tab-content, .accordion-content').slideUp();
+				
+				//高亮响应式Tab当前点击
+				if( options.responsive && tabListItem.length ){
+					tabListItem.eq(index).addClass(options.activeClass).siblings('li').removeClass('active '+options.activeClass);
+				}
 			},		
 			toggleAccording = function(index){
 				accordionHandle = self.find('.accordion-handle');				
