@@ -1,5 +1,6 @@
 # responsive.tabs.js
-支持响应式的Tab选项卡，并支持Accordion、Toggle切换效果。
+支持响应式的Tab选项卡，并支持Accordion、Toggle切换效果。效果如下：
+![支持响应式的Tab选项卡](http://7xp00j.com1.z0.glb.clouddn.com/static/images/responsive.tabs.js.gif)
 
 ## 引用文件
 **CSS**
